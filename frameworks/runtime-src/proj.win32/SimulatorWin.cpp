@@ -32,7 +32,7 @@
 #include "platform/win32/PlayerMenuServiceWin.h"
 
 // define 1 to open console ui and setup windows system menu, 0 to disable
-#define SIMULATOR_WITH_CONSOLE_AND_MENU 0
+#define SIMULATOR_WITH_CONSOLE_AND_MENU 1
 
 USING_NS_CC;
 
@@ -314,6 +314,7 @@ int SimulatorWin::run()
 
     // create opengl view
     Size frameSize = _project.getFrameSize();
+	frameSize = Size(1136,640);
     float frameScale = 1.0f;
     if (_project.isRetinaDisplay())
     {

@@ -40,6 +40,7 @@ function start:entertransitionfinish()
      self.myScene:addChild (nodeForAction)
      nodeForAction:runAction(cc.Sequence:create(cc.DelayTime:create(0.25),cc.CallFunc:create(function(args)
          local menuAnim = self.myScene:getChildByName ('Canvas'):getChildByName ('menuAnim') 
+         --????
          animationManager:playAnimationClip(menuAnim,"menuAnim")
      end),cc.DelayTime:create(0.3),cc.CallFunc:create(function()
             local child = self.myScene:getChildByName ('Canvas'):getChildByName ('menuAnim') 

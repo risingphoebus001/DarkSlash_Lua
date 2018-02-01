@@ -35,7 +35,7 @@ function playerFX:entertransitionfinish()
     local function handler(interval)
          self:update(interval)
     end
-    self.myScene:scheduleUpdateWithPriorityLua(handler,0)
+    self.node:scheduleUpdateWithPriorityLua(handler,0)
 end
 function playerFX:update(dt)
     
