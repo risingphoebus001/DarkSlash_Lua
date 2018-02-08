@@ -1,10 +1,10 @@
-local foeGroup =class("foeGroup")
-function foeGroup:ctor()
+local SortMng =class("SortMng")
+function SortMng:ctor()
 end
-function foeGroup:initData()
+function SortMng:initData()
     self.frameCount = 0
 end
-function foeGroup:init(node)
+function SortMng:init(node)
     --创建场景 添加事件监听
     self.node = node
     local function onSceneEvent(event)  
@@ -30,35 +30,36 @@ function foeGroup:init(node)
     end
     node:registerScriptHandler(onSceneEvent)
 end
-function foeGroup:enter()
+function SortMng:enter()
 end
-function foeGroup:entertransitionfinish()
-    ----开启update函数 
+function SortMng:entertransitionfinish()
+    self:initData()
+      ----开启update函数 
     local function handler(interval)
          self:update(interval)
     end
-    self:initData()
     self.node:scheduleUpdateWithPriorityLua(handler,0)
     
-    local test ={}
-    local child =self.node:getChildByName('player')
-    
-    for k, v in pairs(getmetatable(child)) do
-       table.insert(test,k)
-    end
-    table.sort(test,function(a,b)
-        return  a<b
-    end)
-    for k,v in pairs(test) do
-        print(v,getmetatable(self.node)[v])
-    end
+--    local test ={}
+--    local child =self.node:getChildByName('player')
+--    for k, v in pairs(getmetatable(child)) do
+--       table.insert(test,k)
+--    end
+--    排序
+--    table.sort(test,function(a,b)
+--        return  a<b
+--    end)
+--    for k,v in pairs(test) do
+--        print(v,getmetatable(self.node)[v])
+--    end
 end
-function foeGroup:update(dt)
+function SortMng:update(dt)
+    self.frameCount=self.frameCount+1;
     if(self.frameCount % 6 == 0) then
        self:sortChildByY()
     end
 end
-function foeGroup:sortChildByY()
+function SortMng:sortChildByY()
      local listChild ={}
      local listToSort = self.node:getChildren()
      for k,v in ipairs(listToSort) do
@@ -69,21 +70,19 @@ function foeGroup:sortChildByY()
      end)
      for k,v in ipairs(listToSort) do
          local node = v;
---         print(node:isVisible())
-         --node.setSiblingIndex(i);
-         if (node:isVisible()) then
-             --node.setSiblingIndex(i);
+         if (node:isVisible()) then --处于激活状态
+             node.setLocalZOrder(i);
          end
      end
 end
-function foeGroup:exit()
+function SortMng:exit()
 
 end
-function foeGroup:exittransitionstart()
+function SortMng:exittransitionstart()
 
 end
-function foeGroup:cleanup()
+function SortMng:cleanup()
 
 end
-return foeGroup
+return SortMng
 

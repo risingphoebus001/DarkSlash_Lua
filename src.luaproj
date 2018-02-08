@@ -46,11 +46,13 @@
   <ItemGroup>
     <Compile Include="src\app\MyApp.lua" />
     <Compile Include="src\app\views\MainScene.lua" />
-    <Compile Include="src\classes\foeGroup.lua" />
-    <Compile Include="src\classes\player.lua" />
+    <Compile Include="src\classes\LuaFile1.lua" />
+    <Compile Include="src\classes\SortMng.lua" />
+    <Compile Include="src\classes\Player.lua" />
     <Compile Include="src\classes\playerFX.lua" />
     <Compile Include="src\classes\SceneMenuMain.lua" />
     <Compile Include="src\classes\ScenePlay.lua" />
+    <Compile Include="src\cocos2dx3Api.lua" />
     <Compile Include="src\cocos\3d\3dConstants.lua" />
     <Compile Include="src\cocos\cocos2d\bitExtend.lua" />
     <Compile Include="src\cocos\cocos2d\Cocos2d.lua" />

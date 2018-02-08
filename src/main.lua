@@ -1,6 +1,5 @@
-
+﻿
 cc.FileUtils:getInstance():setPopupNotify(false)
-
 require "config"
 require "cocos.init"
 local SceneMenuMain = require "classes/SceneMenuMain"
@@ -12,8 +11,8 @@ local function main()
 --          print(k, v)
 --     end
      cc.FileUtils:getInstance():addSearchPath('res/creator')
-   --  SceneMenuMain.create()    --��Ŀ¼
-     ScenePlay.create() 
+   --  SceneMenuMain.create()    --主目录
+     SceneMenuMain.create() 
    -- require("app.MyApp"):create():run()
    -- dump(cc.disable_global)
    --dump("start ")

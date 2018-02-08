@@ -1,5 +1,5 @@
-local playScene =class("ScenePlay")
-local foeGroupClass = require('classes/foeGroup')
+锘縧ocal playScene =class("ScenePlay")
+local SortMngClass = require('classes/SortMng')
 local plyayerClass = require("classes/player")
 local playerFXClass = require('classes/playerFX')
 function playScene:ctor()
@@ -7,10 +7,10 @@ function playScene:ctor()
 end
 function playScene:initData()
    --self.frameCount = 0
-   -- self.foeGroup = self.myScene:getChildByName('Canvas'):getChildByName('root'):getChildByName('foeGroup')
+   -- self.SortMng = self.myScene:getChildByName('Canvas'):getChildByName('root'):getChildByName('SortMng')
 end
 function playScene:onCreate()
-    --创建场景 添加事件监听
+    --鍒涘缓鍦烘櫙 娣诲姞浜嬩欢鐩戝惉
     self.creatorReader = creator.CreatorReader:createWithFilename ('scenes/PlayGame.ccreator')
     self.creatorReader:setup()
     self.myScene = self.creatorReader:getSceneGraph()
@@ -36,12 +36,12 @@ function playScene:onCreate()
         end
   end
   self.myScene:registerScriptHandler(onSceneEvent)
-  local foegropNode = self.myScene:getChildByName('Canvas'):getChildByName('root'):getChildByName('foeGroup')
+  local SortMngNode = self.myScene:getChildByName('Canvas'):getChildByName('root'):getChildByName('foeGroup')
  
-  local foegrop = foeGroupClass.create()
-  foegrop:init(foegropNode)
+  local SortMng = SortMngClass.create()
+  SortMng:init(SortMngNode)
 
-  local playerNode = foegropNode:getChildByName('player')
+  local playerNode = SortMngNode:getChildByName('player')
   local player = plyayerClass.create()
   player:init(playerNode)
 
@@ -52,11 +52,11 @@ function playScene:onCreate()
 
   cc.Director:getInstance():replaceScene (self.myScene)
 end
-function playScene:enter(foeGroup)
+function playScene:enter(SortMng)
     
 end
 function playScene:entertransitionfinish()
-    ----开启update函数 
+    ----寮�鍚痷pdate鍑芥暟 
     local function handler(interval)
          self:update(interval)
     end

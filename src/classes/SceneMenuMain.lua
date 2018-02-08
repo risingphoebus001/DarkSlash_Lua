@@ -1,4 +1,4 @@
-local start =class("SceneMenuMain")
+﻿local start =class("SceneMenuMain")
 local ScenePlay = require "classes/ScenePlay"
 function start:ctor()
   self:onCreate()
@@ -40,7 +40,6 @@ function start:entertransitionfinish()
      self.myScene:addChild (nodeForAction)
      nodeForAction:runAction(cc.Sequence:create(cc.DelayTime:create(0.25),cc.CallFunc:create(function(args)
          local menuAnim = self.myScene:getChildByName ('Canvas'):getChildByName ('menuAnim') 
-         --????
          animationManager:playAnimationClip(menuAnim,"menuAnim")
      end),cc.DelayTime:create(0.3),cc.CallFunc:create(function()
             local child = self.myScene:getChildByName ('Canvas'):getChildByName ('menuAnim') 
@@ -48,7 +47,7 @@ function start:entertransitionfinish()
             local btnPlay = btnGroups:getChildByName('btn_play')
             btnPlay:addTouchEventListener(function(sender,eventType)
                   if eventType == ccui.TouchEventType.began then
-                      -- cc.Director:getInstance():endToLua()
+                       -- cc.Director:getInstance():endToLua()
                        print("begin")
                   elseif eventType == ccui.TouchEventType.moved then
                        print("moved")
