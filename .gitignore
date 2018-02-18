@@ -5,3 +5,4 @@ simulator/
 frameworks/runtime-src/proj.android-studio/proj.android-studio.iml
 frameworks/runtime-src/proj.android-studio/.idea/
 frameworks/runtime-src/proj.android-studio/app/DarkSlash.iml
+src/cocos2dx3Api.lua

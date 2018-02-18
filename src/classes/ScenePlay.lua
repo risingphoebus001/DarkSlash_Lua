@@ -43,7 +43,7 @@ function playScene:onCreate()
 
   local playerNode = SortMngNode:getChildByName('player')
   local player = plyayerClass.create()
-  player:init(playerNode)
+  player:init(playerNode,1)
 
   local playerFXNode = self.myScene:getChildByName('Canvas'):getChildByName('root'):getChildByName('playerFX')
   local playerFX = playerFXClass.create()
